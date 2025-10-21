@@ -35,7 +35,7 @@ Geography=st.selectbox("Geography",encoder_geo.categories_[0])
 
 input_data=pd.DataFrame({
    'CreditScore':[CreditScore],
-   'Gender':[label_encoder_gender.transform([Gender][0])],
+   'Gender':[label_encoder_gender.transform([Gender])[0],
    'Age':[Age],
    'Tenure':[Tenure],
    'Balance':[Balance],
@@ -64,4 +64,5 @@ if predtion_proba >0.5:
    st.write("the customer is likely to churn")
 else:
    st.write("the customer is not likely to churn")   
+
 
