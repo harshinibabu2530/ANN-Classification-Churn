@@ -39,7 +39,7 @@ input_data=pd.DataFrame({
    'Age':[Age],
    'Tenure':[Tenure],
    'Balance':[Balance],
-   'NumOfProduts':[NumOfProducts],
+   'NumOfProducts':[NumOfProducts],
    'HasCrCard':[HasCrCard],
    'IsActiveMember':[IsActiveMember],
    'EstimatedSalary':[EstimatedSalary]
@@ -64,5 +64,6 @@ if predtion_proba >0.5:
    st.write("the customer is likely to churn")
 else:
    st.write("the customer is not likely to churn")   
+
 
 
