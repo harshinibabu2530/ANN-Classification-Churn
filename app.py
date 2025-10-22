@@ -19,34 +19,34 @@ with open('scaler.plk','rb') as file:
 
 st.title("Customer Churn Prediction ")
 
-CreditScore=st.number_input('Credit Score')
-Gender=st.selectbox('Gender',label_encoder_gender.classes_)
-Age=st.slider('Age',18,90)
-Tenure=st.slider('Tenure',0,10)
-Balance=st.number_input('Balance')
-NumOfProducts=st.slider("NumOfProducts",1,4)
-HasCrCard=st.selectbox("HasCrCard",[0,1])
-IsActiveMember=st.selectbox("IsActiveMember",[0,1])
-EstimatedSalary=st.number_input("EstimatedSalary")
-Geography=st.selectbox("Geography",encoder_geo.categories_[0])
+#user input
+creditScore=st.number_input('Credit Score')
+gender=st.selectbox('Gender',label_encoder_gender.classes_)
+age=st.slider('Age',18,90)
+tenure=st.slider('Tenure',0,10)
+balance=st.number_input('Balance')
+numOfProducts=st.slider("NumOfProducts",1,4)
+hasCrCard=st.selectbox("HasCrCard",[0,1])
+isActiveMember=st.selectbox("IsActiveMember",[0,1])
+estimatedSalary=st.number_input("EstimatedSalary")
+geography=st.selectbox("Geography",encoder_geo.categories_[0])
 
 
 #input data
 
-input_data=pd.DataFrame({
-   'CreditScore':[CreditScore],
-   'Gender':[label_encoder_gender.transform([Gender])[0],
-   'Age':[Age],
-   'Tenure':[Tenure],
-   'Balance':[Balance],
-   'NumOfProducts':[NumOfProducts],
-   'HasCrCard':[HasCrCard],
-   'IsActiveMember':[IsActiveMember],
-   'EstimatedSalary':[EstimatedSalary]
-   
-})
+input_data=pd.DataFrame ({
+   'CreditScore':[creditScore],
+   'Gender':[label_encoder_gender.transform([gender])[0]],
+   'Age':[age],
+   'Tenure':[tenure],
+   'Balance':[balance],
+   'NumOfProducts':[numOfProducts],
+   'HasCrCard':[hasCrCard],
+   'IsActiveMember':[isActiveMember],
+   'EstimatedSalary':[estimatedSalary]
+   })
 
-geo_encoded=encoder_geo.transform([[input_data['Geography']]]).toarray()
+geo_encoded=encoder_geo.transform([[geography]]).toarray()
 geo_encoded_df=pd.DataFrame(geo_encoded,columns=encoder_geo.get_feature_names_out(['Geography']))
 
 
